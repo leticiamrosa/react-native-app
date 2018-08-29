@@ -6,11 +6,12 @@ import {
 } from 'react-native';
 
 // Stateless | Functional
-
+// We can use anything here, for exemple:
+// We can use props.titulo, but when we callback in another comp, we'll call titulo={'string'}, titulo={number}, titulo={function }
 const Header = (props) => (
     <View style={styles.navBar}>
         <Text style={styles.navBarButton}>Back</Text>
-        <Text style={styles.navBarHeader}>People</Text>
+        <Text style={styles.navBarHeader}>{props.title}</Text>
         <Text style={styles.navBarButton}>More</Text>
     </View>
 );
