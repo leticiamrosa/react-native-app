@@ -6,7 +6,7 @@ import PeopleListItem from "./PeopleListItem";
 // We have just only element, so we dont use ()
 const PeopleList = props => {
   // pick for props
-  const { peoples } = props;
+  const { peoples, onPressItem } = props;
 
   // // We use variable people instand of this.props for pass information for element
   // const textElements = peoples.map(people => {
@@ -19,7 +19,7 @@ const PeopleList = props => {
   //   });
 
   const items = peoples.map(people => {
-    return <PeopleListItem key={people.name.first} people={people} />;
+    return <PeopleListItem key={people.name.first} people={people} navigateToPeopleDetail={onPressItem} />;
   });
 
   return <View style={styles.content}>{items}</View>;

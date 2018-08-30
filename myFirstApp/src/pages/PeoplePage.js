@@ -30,6 +30,9 @@ export default class PeoplePage extends React.Component {
     }
 
     render() {
+        // this.props.navigation.navigate( /* Chave da página, state*/ )
+        // state = dados que queremos passar;
+        
         return (
                 // <View style={styles.container}>
                 //   <Header title={'Nome novo'} />
@@ -40,7 +43,10 @@ export default class PeoplePage extends React.Component {
                 // </View>
 
                 <View>
-                    <PeopleList peoples = {this.state.peoples}/> 
+                    <PeopleList peoples = {this.state.peoples}
+                    onPressItem={() => {
+                        this.props.navigation.navigate('PeopleDetail');
+                    }}/> 
                 </View >
     );
 }

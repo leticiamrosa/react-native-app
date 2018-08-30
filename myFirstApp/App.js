@@ -1,5 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
 import PeoplePage from './src/pages/PeoplePage';
+import PeopleDetailPage from './src/pages/PeopleDetailPage';
 
 // export default PeoplePage;
 
@@ -20,7 +21,11 @@ export default createStackNavigator({
         alignSelf: 'center'
       }
     }
-  }
+  },
+    PeopleDetail: {
+      screen: PeopleDetailPage
+    }
+
 
   // ...MyOtherRoutes,
 });

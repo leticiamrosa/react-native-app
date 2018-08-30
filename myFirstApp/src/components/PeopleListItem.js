@@ -3,10 +3,10 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { capitalizeFirstLetter } from "../utils";
 
 const PeopleListItem = props => {
-  const { people } = props;
+  const { people, navigateToPeopleDetail } = props;
   const { title, first, last } = people.name;
   return (
-    <TouchableOpacity onPress={() => console.log('clicou', first)}>
+    <TouchableOpacity onPress={() => navigateToPeopleDetail()}>
       <View style={styles.line}>
         {/* We can find image from device user, with comp image */}
         <Image
