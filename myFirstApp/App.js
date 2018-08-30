@@ -22,7 +22,7 @@ export default class App extends React.Component {
 
   // Here we cam call API
   componentDidMount() {
-    axios.get('https://randomuser.me/api/?nat=br&results=10')
+    axios.get('https://randomuser.me/api/?nat=br&results=5')
       .then(response => {
         const { results } = response.data
         this.setState({
@@ -36,10 +36,10 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Header title={'Nome novo'} />
-        <View style={styles.content}>
-        <PeopleList peoples={ this.state.peoples }/>
+        {/* <View style={styles.content}>
           <Text style={styles.text}>Welcome to my app!</Text>
-        </View>
+        </View> */}
+        <PeopleList peoples={ this.state.peoples }/>
       </View>
     );
   }
