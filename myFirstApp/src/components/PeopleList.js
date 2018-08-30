@@ -27,8 +27,7 @@ const PeopleList = props => {
 
 const styles = StyleSheet.create({
   content: {
-    backgroundColor: "#333",
-    justifyContent: "space-between"
+    backgroundColor: "#333"
   }
 });
 

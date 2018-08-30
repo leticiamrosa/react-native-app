@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 import { capitalizeFirstLetter } from "../utils";
 
 const PeopleListItem = props => {
@@ -7,7 +7,11 @@ const PeopleListItem = props => {
   const { title, first, last } = people.name;
   return (
     <View style={styles.line}>
-      <Text style={styles.textPeople}>{`${capitalizeFirstLetter(title)} ${capitalizeFirstLetter(first)} ${capitalizeFirstLetter(last)}`}</Text>
+      {/* We can find image from device user, with comp image */}
+      <Image style={styles.avatar} source={ { uri: people.picture.thumbnail } } />
+      <Text style={styles.textPeople}>{`${capitalizeFirstLetter(
+        title
+      )} ${capitalizeFirstLetter(first)} ${capitalizeFirstLetter(last)}`}</Text>
     </View>
   );
 };
@@ -17,13 +21,18 @@ const styles = StyleSheet.create({
     height: 60,
     borderBottomWidth: 1,
     borderBottomColor: "#fff",
-    justifyContent: "center"
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   textPeople: {
     color: "#fff",
     fontSize: 20,
     paddingLeft: 10,
     fontWeight: "bold"
+  },
+  avatar: {
+    aspectRatio: 1,
+    width: 48
   }
 });
 
