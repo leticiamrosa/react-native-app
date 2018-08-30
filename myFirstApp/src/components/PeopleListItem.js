@@ -1,18 +1,25 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { capitalizeFirstLetter } from "../utils";
 
 const PeopleListItem = props => {
   const { people } = props;
   const { title, first, last } = people.name;
   return (
-    <View style={styles.line}>
-      {/* We can find image from device user, with comp image */}
-      <Image style={styles.avatar} source={ { uri: people.picture.thumbnail } } />
-      <Text style={styles.textPeople}>{`${capitalizeFirstLetter(
-        title
-      )} ${capitalizeFirstLetter(first)} ${capitalizeFirstLetter(last)}`}</Text>
-    </View>
+    <TouchableOpacity onPress={() => console.log('clicou', first)}>
+      <View style={styles.line}>
+        {/* We can find image from device user, with comp image */}
+        <Image
+          style={styles.avatar}
+          source={{ uri: people.picture.thumbnail }}
+        />
+        <Text style={styles.textPeople}>{`${capitalizeFirstLetter(
+          title
+        )} ${capitalizeFirstLetter(first)} ${capitalizeFirstLetter(
+          last
+        )}`}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -21,18 +28,21 @@ const styles = StyleSheet.create({
     height: 60,
     borderBottomWidth: 1,
     borderBottomColor: "#fff",
-    flexDirection: 'row',
-    alignItems: 'center'
+    flexDirection: "row",
+    alignItems: "center"
   },
   textPeople: {
+    flex: 7,
     color: "#fff",
     fontSize: 20,
     paddingLeft: 10,
     fontWeight: "bold"
   },
   avatar: {
+    flex: 1,
     aspectRatio: 1,
-    width: 48
+    marginLeft: 15,
+    borderRadius: 25
   }
 });
 
