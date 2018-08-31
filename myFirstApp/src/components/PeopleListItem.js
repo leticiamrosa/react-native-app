@@ -6,7 +6,7 @@ const PeopleListItem = props => {
   const { people, navigateToPeopleDetail } = props;
   const { title, first, last } = people.name;
   return (
-    <TouchableOpacity onPress={() => navigateToPeopleDetail()}>
+    <TouchableOpacity onPress={() => navigateToPeopleDetail({people})}>
       <View style={styles.line}>
         {/* We can find image from device user, with comp image */}
         <Image
@@ -25,7 +25,7 @@ const PeopleListItem = props => {
 
 const styles = StyleSheet.create({
   line: {
-    height: 60,
+    height: 100,
     borderBottomWidth: 1,
     borderBottomColor: "#fff",
     flexDirection: "row",
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
   },
   textPeople: {
     flex: 7,
-    color: "#fff",
-    fontSize: 20,
+    color: "#1b2834",
+    fontSize: 16,
     paddingLeft: 10,
     fontWeight: "bold"
   },
