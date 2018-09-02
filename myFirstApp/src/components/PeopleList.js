@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 
 import PeopleListItem from "./PeopleListItem";
 
@@ -18,11 +18,17 @@ const PeopleList = props => {
   // );
   //   });
 
-  const items = peoples.map(people => {
-    return <PeopleListItem key={people.name.first} people={people} navigateToPeopleDetail={onPressItem} />;
-  });
-
-  return <View style={styles.content}>{items}</View>;
+  return (
+    <FlatList
+      style={styles.content}
+      data={peoples}
+      renderItem={({ item }) => (
+        <PeopleListItem people={item} 
+        navigateToPeopleDetail={onPressItem} />
+      )}
+      keyExtractor={item => item.name.first}
+    />
+  );
 };
 
 const styles = StyleSheet.create({
